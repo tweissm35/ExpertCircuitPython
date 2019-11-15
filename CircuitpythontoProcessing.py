@@ -1,5 +1,5 @@
-import board#pylint: disable-msg=import-error
-import busio#pylint: disable-msg=import-error
+import board #pylint: disable-msg=import-error
+import busio #pylint: disable-msg=import-error
 from analogio import AnalogIn #pylint: disable-msg=import-error
 import time
 from myfunction import mapp
@@ -9,8 +9,7 @@ potpin = AnalogIn(board.A5)
 test = 0
 
 while True:
-    test = int(mapp(potpin.value,0,65535,0,255))
+    test = int(mapp(potpin.value,0,65536,0,256))
+    #print(test)
     uart.write(bytes([test])) 
     time.sleep(0.1)
- 
-        
