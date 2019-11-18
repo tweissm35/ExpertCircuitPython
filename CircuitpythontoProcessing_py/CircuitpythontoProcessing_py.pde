@@ -6,6 +6,7 @@ void setup() {
      printArray(Serial.list());
      size(300, 300);
      smooth(8);
+     textAlign(CENTER);
      background(230);
      PFont f;
      f = createFont("Courier",20,true);//the size here doesn't matter because of the next line
@@ -13,8 +14,7 @@ void setup() {
      
      
 }
-color b = color(0, 0, 255);  // Define color 'c'
-color l = color(0, 0, 0);  // Define color 'c'
+color b = color(0, 0, 0);  // Define color 'b'
 void draw() {
   //print(myPort.available());
      fill(0);
@@ -37,19 +37,19 @@ void draw() {
           }
           
           println(myNum);
-          
-          fill(l);
-          text("255",140+cos(PI/4)*125,150+sin(PI/4)*125);
-          text("0",140+cos((3*PI)/4)*125,150+sin((3*PI)/4)*125);
-          text("128",140+cos(-PI/2)*125,150+sin(-PI/2)*125);
-          text("170",140+cos(-PI/4)*125,150+sin(-PI/4)*125);
-          text("85",140+cos((-3*PI)/4)*125,150+sin((-3*PI)/4)*125);
-          text("212",140+cos(0)*125,150+sin(0)*125);
-          text("42",140+cos(PI)*125,150+sin(PI)*125);
+          textSize(20);
+          fill(b);
+          text("255",150+cos(PI/4)*125,150+sin(PI/4)*125);
+          text("0",150+cos((3*PI)/4)*125,150+sin((3*PI)/4)*125);
+          text("128",150+cos(-PI/2)*125,150+sin(-PI/2)*125);
+          text("170",150+cos(-PI/4)*125,150+sin(-PI/4)*125);
+          text("85",150+cos((-3*PI)/4)*125,150+sin((-3*PI)/4)*125);
+          text("212",150+cos(0)*125,150+sin(0)*125);
+          text("42",150+cos(PI)*125,150+sin(PI)*125);
           
           stroke(255,0,0);
           line(150,150,cosend,sinend);  
-          fill(b);
+          textSize(30);
           text(myNum,150,150);
      } 
 }
