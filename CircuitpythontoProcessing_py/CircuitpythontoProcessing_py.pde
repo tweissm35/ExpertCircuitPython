@@ -8,12 +8,13 @@ void setup() {
      smooth(8);
      background(230);
      PFont f;
-     f = createFont("Comic Sans MS",20,true);//the size here doesn't matter because of the next line
+     f = createFont("Courier",20,true);//the size here doesn't matter because of the next line
      textFont(f,20);
      
      
 }
 color b = color(0, 0, 255);  // Define color 'c'
+color l = color(0, 0, 0);  // Define color 'c'
 void draw() {
   //print(myPort.available());
      fill(0);
@@ -37,10 +38,18 @@ void draw() {
           
           println(myNum);
           
+          fill(l);
+          text("255",140+cos(PI/4)*125,150+sin(PI/4)*125);
+          text("0",140+cos((3*PI)/4)*125,150+sin((3*PI)/4)*125);
+          text("128",140+cos(-PI/2)*125,150+sin(-PI/2)*125);
+          text("170",140+cos(-PI/4)*125,150+sin(-PI/4)*125);
+          text("85",140+cos((-3*PI)/4)*125,150+sin((-3*PI)/4)*125);
+          text("212",140+cos(0)*125,150+sin(0)*125);
+          text("42",140+cos(PI)*125,150+sin(PI)*125);
           
-          
+          stroke(255,0,0);
           line(150,150,cosend,sinend);  
           fill(b);
-          text(myNum,cosend,sinend);
+          text(myNum,150,150);
      } 
 }
