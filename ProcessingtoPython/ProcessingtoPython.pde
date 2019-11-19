@@ -5,6 +5,7 @@ color b = color(0, 0, 0);  // Define color 'b'
 int servo1angle = 0;
 int servo2angle = 0;
 int oldmillis = 0;
+String message = "";
 
 void setup() {
     size(300, 400);  
@@ -44,7 +45,7 @@ void draw() {
      ellipse(mouseX,mouseY,1,1);
 }
 void mouseMoved(){
-    String message = servo1angle+"%"+servo2angle+"#"; 
+    message = servo1angle+"%"+servo2angle+"#"; 
     if(millis()-oldmillis>=100){
      /*myPort.write(byte(servo1angle));
      myPort.write(byte(255));

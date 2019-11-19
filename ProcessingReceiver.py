@@ -11,4 +11,4 @@ while True:
     print(test)
     #test = test.decode("utf-8")
     print(test)
-    time.sleep(100)
+    time.sleep(0.1)
