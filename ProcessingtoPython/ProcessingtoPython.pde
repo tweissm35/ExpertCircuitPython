@@ -4,6 +4,7 @@ Serial myPort;
 color b = color(0, 0, 0);  // Define color 'b'
 int servo1angle = 0;
 int servo2angle = 0;
+int oldmillis = 0;
 
 void setup() {
     size(300, 400);  
@@ -14,7 +15,7 @@ void setup() {
   
     println("Available serial ports:");
     println(Serial.list());
-    myPort = new Serial(this, Serial.list()[0], 9600);//change to 2
+    myPort = new Serial(this, Serial.list()[2], 9600);//change to 2
     
     
 }
@@ -44,11 +45,12 @@ void draw() {
 }
 void mouseMoved(){
     String message = servo1angle+"%"+servo2angle+"#"; 
-    /*myPort.write(byte(servo1angle));
+    if(millis()-oldmillis>=100){
+     /*myPort.write(byte(servo1angle));
      myPort.write(byte(255));
      myPort.write(byte(servo2angle));
-     myPort.write(byte(230));
-     delay(100);
-     */
-     myPort.write(message);
+     myPort.write(byte(230));*/
+     myPort.write(message.getBytes());
+     oldmillis = millis();
+      }
 }
