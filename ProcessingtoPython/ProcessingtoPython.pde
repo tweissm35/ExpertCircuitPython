@@ -36,7 +36,6 @@ void draw() {
      rect(1,300,297,97);
      textSize(30);
      fill(b);
-     //mouseMoved()
      text("Servo 1:",20,335);
      text("Servo 2:",20,375);
      text(servo1angle+"°",160,335);
@@ -47,11 +46,12 @@ void draw() {
 void mouseMoved(){
     message = servo1angle+"%"+servo2angle+"#"; 
     if(millis()-oldmillis>=100){
-     /*myPort.write(byte(servo1angle));
-     myPort.write(byte(255));
-     myPort.write(byte(servo2angle));
-     myPort.write(byte(230));*/
-     myPort.write(message.getBytes());
-     oldmillis = millis();
-      }
+       /*myPort.write(byte(servo1angle));
+       myPort.write(byte(255));
+       myPort.write(byte(servo2angle));
+       myPort.write(byte(230));*/
+       myPort.write(message);//writes the same thing if converted to bytes or not
+       println(message);
+       oldmillis = millis();
+    }
 }
