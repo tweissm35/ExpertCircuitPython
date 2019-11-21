@@ -42,6 +42,7 @@ void draw() {
      text(servo2angle+"°",160,375);
      stroke(0);
      ellipse(mouseX,mouseY,1,1);
+     myPort.write("#");//necessary?
 }
 void mouseMoved(){
     message = servo1angle+"%"+servo2angle+"#"; 
