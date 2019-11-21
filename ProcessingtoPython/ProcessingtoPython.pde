@@ -46,10 +46,6 @@ void draw() {
 void mouseMoved(){
     message = servo1angle+"%"+servo2angle+"#"; 
     if(millis()-oldmillis>=100){
-       /*myPort.write(byte(servo1angle));
-       myPort.write(byte(255));
-       myPort.write(byte(servo2angle));
-       myPort.write(byte(230));*/
        myPort.write(message);//writes the same thing if converted to bytes or not
        println(message);
        oldmillis = millis();
