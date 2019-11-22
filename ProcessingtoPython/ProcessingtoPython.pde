@@ -5,6 +5,7 @@ color b = color(0, 0, 0);  // Define color 'b'
 int servo1angle = 0;
 int servo2angle = 0;
 int oldmillis = 0;
+int mills = 0;
 String message = "";
 
 void setup() {
@@ -42,13 +43,13 @@ void draw() {
      text(servo2angle+"°",160,375);
      stroke(0);
      ellipse(mouseX,mouseY,1,1);
-     myPort.write("#");//necessary?
 }
 void mouseMoved(){
     message = servo1angle+"%"+servo2angle+"#"; 
-    if(millis()-oldmillis>=100){
+    mills = millis();
+    if(mills-oldmillis>=100){
        myPort.write(message);//writes the same thing if converted to bytes or not
        println(message);
-       oldmillis = millis();
+       oldmillis = mills;
     }
 }
