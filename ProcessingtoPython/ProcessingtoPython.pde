@@ -12,12 +12,12 @@ void setup() {
     size(300, 400);  
     background(230);
     PFont f;
-    f = createFont("Courier",20,true);//the size here doesn't matter because of the next line
+    f = createFont("Courier",20,true);
     textFont(f,20);
   
     println("Available serial ports:");
     println(Serial.list());
-    myPort = new Serial(this, Serial.list()[2], 9600);//change to 2
+    myPort = new Serial(this, Serial.list()[2], 9600);
     
     
 }
@@ -48,7 +48,7 @@ void mouseMoved(){
     message = servo1angle+"%"+servo2angle+"#"; 
     mills = millis();
     if(mills-oldmillis>=100){
-       myPort.write(message);//writes the same thing if converted to bytes or not
+       myPort.write(message);
        println(message);
        oldmillis = mills;
     }

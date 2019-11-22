@@ -1,42 +1,37 @@
 import processing.serial.*;
 Serial myPort = new Serial(this, Serial.list()[2], 9600);
 
-void setup() {
-     println("Available serial ports:");
-     printArray(Serial.list());
-     size(300, 300);
-     smooth(8);
-     textAlign(CENTER);
-     background(230);
-     PFont f;
-     f = createFont("Courier",20,true);//the size here doesn't matter because of the next line
-     textFont(f,20);
-     
-     
-}
 color b = color(0, 0, 0);  // Define color 'b'
+void setup() {
+     size(300, 300);//sets the window size
+     smooth(8);//makes the text "rounder"
+     textAlign(CENTER);//makes text align its center with the coordinates you give it
+     background(230);//makes the background light gray 
+     PFont f;//these three line set up the font VVV
+     f = createFont("Courier",20,true);
+     textFont(f,20);
+}
 void draw() {
-  //print(myPort.available());
-     fill(0);
-     strokeWeight(2);
-     if (myPort.available() > 0) { 
+     fill(0);//black
+     strokeWeight(2);//thickness
+     if (myPort.available() > 0) { //check if there is data
           background(230);
           int myNum = myPort.read();
-          
+          //does some math, the important thing is I'm using sine (for y) and cosine (for x) and that I divide by 255. The rest just sets the size
           float sinend = (150+sin((float(myNum)/255)*(1.5*PI)+0.75*PI)*120);
           float cosend = (150+cos((float(myNum)/255)*(1.5*PI)+0.75*PI)*120);
           
-          noStroke();
-          fill(255);
-          ellipse(150,150,200,200);
+          noStroke();//no outline
+          fill(255);//white
+          ellipse(150,150,200,200);//make a circle size, radius 100
           stroke(0);
           
           
-          for(float i = (PI/4);i<2*PI;i+=PI/4){
+          for(float i = (PI/4);i<2*PI;i+=PI/4){//makes the lines on the edge of the circle
           line(150+cos(i)*80,150+sin(i)*80, 150+cos(i)*100,150+sin(i)*100);
           }
           
-          println(myNum);
+          println(myNum);//this block makes the numbers that appear on the outside. It's essentially the same as the for loop
           textSize(20);
           fill(b);
           text("255",150+cos(PI/4)*125,150+sin(PI/4)*125);
@@ -47,7 +42,7 @@ void draw() {
           text("212",150+cos(0)*125,150+sin(0)*125);
           text("42",150+cos(PI)*125,150+sin(PI)*125);
           
-          stroke(255,0,0);
+          stroke(255,0,0);//this blockmakes the red line
           line(150,150,cosend,sinend);  
           textSize(30);
           text(myNum,150,150);
