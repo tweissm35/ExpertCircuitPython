@@ -1,7 +1,8 @@
 # Expert CircuitPython
 For all my Processing-related projects.
 ## [Hello Processing](/HelloProcessing/HelloProcessing.pde)
-This one was pretty straight forward. I had no problems, and just learned some basic Processing functions.
+This one was pretty straight forward. I had no problems, and just learned some basic Processing functions. I did learn that I can have my if statements in one line, if the code inside it is only one line. It looks very clean.
+<br><img src="media/bounce.PNG" width="200">
 ## [CircuitPython to Processing](/CircuitpythontoProcessing_py/CircuitpythontoProcessing_py.pde)
 This one was tricky. The [Circuit Python part](/CircuitpythontoProcessing.py) was mostly fine, but I made a mistake where I forgot the square brackets in the bytes function. With Processing I had a big problem with a simple solution. The data I was receiving made no sense. Serial.list() was displaying three ports, but I never changed what I copied from the project page. In the Serial initialization at the top I needed to switch it from port 1 to port 2, which I thought I had already tried. I also had a small problem where I had my transmitting and receiving wires switched. To make the dial display, I mostly just messed around with pi values until it was in the right spot.
 <br><img src="media/dialdisplay.PNG" width="200"><img src="media/pythontoprocessing.jpg" width="600">
